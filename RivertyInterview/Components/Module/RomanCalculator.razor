@@ -1,0 +1,57 @@
+﻿@rendermode InteractiveServer
+
+@inject IRomanNumberService romanNumberService
+
+<PageTitle>Roman Number Calculator</PageTitle>
+
+<h1>Roman Number Calculator</h1>
+
+<EditForm Model="formData" OnValidSubmit="AddRomanNumbers">
+	<div class="mb-3">
+		<label for="leftOperand" class="form-label">Left Operand:</label>
+		<InputText id="leftOperand" @bind-Value="formData.Left.Value"
+				   class="form-control" @oninput="ValidateLeftValue" />
+		@if (formData.Left.Validation.IsInvalid)
+		{
+			<div class="invalid-feedback">@formData.Left.Validation.Message</div>
+		}
+	</div>
+	<div class="mb-3">
+		<label for="rightOperand" class="form-label">Right Value:</label>
+		<InputText id="rightOperand" @bind-Value="formData.Right.Value" class="form-control" @oninput="ValidateRightValue" />
+		@if (formData.Right.Validation.IsInvalid)
+		{
+			<div class="invalid-feedback">@formData.Right.Validation.Message</div>
+		}
+	</div>
+	<button type="submit" class="btn btn-primary" disabled="@(!formData.IsSubmitable)">Sum Up!</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(formData.Result))
+{
+	<div class="mt-3">
+		"@formData.Left.Value" + "@formData.Right.Value" = "@formData.Result"
+	</div>
+}
+
+@code {
+
+	private RomanAddFormDto formData = new RomanAddFormDto();
+
+	private void ValidateLeftValue(ChangeEventArgs e)
+	{
+		formData.Left.Validation = romanNumberService.Validate(e.Value?.ToString() ?? string.Empty);
+		formData.Left.IsValidated = true;
+	}
+
+	private void ValidateRightValue(ChangeEventArgs e){
+		formData.Right.Validation = romanNumberService.Validate(e.Value?.ToString() ?? string.Empty);
+		formData.Right.IsValidated = true;
+	}
+
+	private void AddRomanNumbers()
+	{
+		if (formData.IsSubmitable) // ← Let's go conservative!
+			formData.Result = romanNumberService.AddRomanNumbers(formData.Left.Value, formData.Right.Value);
+	}
+}

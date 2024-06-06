@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivertyInterview", "RivertyInterview\RivertyInterview.csproj", "{5917E3B5-F47D-48F1-A40E-D864A3340262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivertyInterviewTests", "RivertyInterviewTests\RivertyInterviewTests.csproj", "{65396593-B3C9-4EBE-A863-DA31278CE691}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5917E3B5-F47D-48F1-A40E-D864A3340262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5917E3B5-F47D-48F1-A40E-D864A3340262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5917E3B5-F47D-48F1-A40E-D864A3340262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5917E3B5-F47D-48F1-A40E-D864A3340262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65396593-B3C9-4EBE-A863-DA31278CE691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65396593-B3C9-4EBE-A863-DA31278CE691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65396593-B3C9-4EBE-A863-DA31278CE691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65396593-B3C9-4EBE-A863-DA31278CE691}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83D68B1B-0B48-4141-AF19-0886B2B86863}
+	EndGlobalSection
+EndGlobal
