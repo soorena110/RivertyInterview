@@ -8,7 +8,7 @@
 
 <EditForm Model="formData" OnValidSubmit="AddRomanNumbers">
 	<div class="mb-3">
-		<label for="leftOperand" class="form-label">Left Operand:</label>
+		<label for="leftOperand" class="form-label @(formData.Left.Validation.IsInvalid ? "is-invalid" : "")">Left Operand:</label>
 		<InputText id="leftOperand" @bind-Value="formData.Left.Value"
 				   class="form-control" @oninput="ValidateLeftValue" />
 		@if (formData.Left.Validation.IsInvalid)
@@ -17,7 +17,7 @@
 		}
 	</div>
 	<div class="mb-3">
-		<label for="rightOperand" class="form-label">Right Value:</label>
+		<label for="rightOperand" class="form-label @(formData.Right.Validation.IsInvalid ? "is-invalid" : "")">Right Value:</label>
 		<InputText id="rightOperand" @bind-Value="formData.Right.Value" class="form-control" @oninput="ValidateRightValue" />
 		@if (formData.Right.Validation.IsInvalid)
 		{
@@ -27,7 +27,9 @@
 	<button type="submit" class="btn btn-primary" disabled="@(!formData.IsSubmitable)">Sum Up!</button>
 </EditForm>
 
-@if (!string.IsNullOrEmpty(formData.Result))
+
+<div>@formData.Right.Validation.Message</div>
+@if (!string.IsNullOrEmpty(formData.Result) && formData.IsSubmitable)
 {
 	<div class="mt-3">
 		"@formData.Left.Value" + "@formData.Right.Value" = "@formData.Result"
